@@ -1,0 +1,114 @@
+[
+    {
+        "id": 1,
+        "nom": "Canapé cuire modern",
+        "catégorie": "Canapé",
+        "prix": 1100,
+        "image": "image/canape-cuire-modern.avif",
+        "description": "Apportez une touche de sophistication à votre salon avec ce canapé moderne en cuir. Avec ses lignes épurées et son design élégant, ce canapé est parfait pour les intérieurs contemporains. Le cuir véritable de haute qualité offre non seulement un confort exceptionnel, mais aussi une durabilité inégalée. Les coussins rembourrés et les accoudoirs inclinés assurent une expérience de détente luxueuse."
+    },
+    {
+        "id": 2,
+        "nom": "Chaise contemporaine",
+        "catégorie": "Chaise",
+        "prix": 250,
+        "image": "image/chaise-contemporaine.jpg",
+        "description": "Apportez une touche de sophistication à votre salle à manger avec cette chaise moderne en cuir. Avec son design épuré et ses lignes contemporaines, elle s'intègre parfaitement dans les intérieurs modernes. Le cuir véritable offre une assise confortable et durable, tandis que les pieds en métal ajoutent une touche d'élégance industrielle."
+    },
+    {
+        "id": 3,
+        "nom": "Chaise Moderne",
+        "catégorie": "Chaise",
+        "prix": 199,
+        "image": "image/chaise-moderne.avif",
+        "description": "Travaillez confortablement avec cette chaise de bureau ergonomique. Conçue pour soutenir votre dos tout au long de la journée, elle dispose d'un dossier en maille respirante, d'un appui-tête réglable et d'accoudoirs ajustables. Le siège rembourré offre un soutien supplémentaire, tandis que les roulettes pivotantes permettent une mobilité facile dans votre espace de travail."
+    },
+    {
+        "id": 4,
+        "nom": "Chaise Oreiller",
+        "catégorie": "Chaise",
+        "prix": 290,
+        "image": "image/chaise-oreiller.avif",
+        "description": "Ajoutez une touche de glamour rétro à votre intérieur avec cette chaise vintage en velours. Le velours doux et luxueux, disponible en plusieurs couleurs élégantes, est combiné avec des pieds en bois tourné pour un look classique et raffiné. L'assise rembourrée et le dossier capitonné assurent un confort exceptionnel, idéal pour les salons ou les chambres."
+    },
+    {
+        "id": 5,
+        "nom": "Chaise Oreiller Blanche",
+        "catégorie": "Chaise",
+        "prix": 299,
+        "image": "image/chaise-oreiller-blanche.avif",
+        "description": "Ajoutez une touche industrielle à votre espace avec cette chaise de bar. Fabriquée en métal robuste avec une finition vieillie, cette chaise de bar est à la fois durable et élégante. L'assise en bois massif ajoute une chaleur naturelle, tandis que le repose-pieds intégré offre un confort supplémentaire pour les longues soirées entre amis."
+    },
+    {
+        "id": 6,
+        "nom": "Chaise à carreaux",
+        "catégorie": "Chaise",
+        "prix": 80,
+        "image": "image/chaise-carreaux.avif",
+        "description": "Profitez de vos espaces extérieurs avec cette chaise en rotin. Conçue pour résister aux intempéries, elle est fabriquée à partir de rotin synthétique tressé et d'un cadre en aluminium robuste. Le coussin d'assise amovible offre un confort supplémentaire, et le design léger permet de la déplacer facilement. Idéale pour les jardins, terrasses et balcons."
+    },
+    {
+        "id": 7,
+        "nom": "Vase noire",
+        "catégorie": "Déco",
+        "prix": 30,
+        "image": "image/deco-plante.avif",
+        "description": "Un super vase noire avec une plante pour décorer vos intérieurs."
+    },
+    {
+        "id": 8,
+        "nom": "Meuble en bois-orange",
+        "catégorie": "Meuble",
+        "prix": 250,
+        "image": "image/meuble-orange.avif",
+        "description": "Apportez une touche d'élégance à votre salle à manger avec ce buffet en bois massif. Fabriqué à partir de chêne de haute qualité, ce meuble offre une robustesse et une durabilité exceptionnelles. Ses tiroirs spacieux et ses étagères ajustables offrent un espace de rangement optimal pour votre vaisselle et vos objets décoratifs. Les poignées en métal ajoutent une touche contemporaine à ce design classique."
+    },
+    {
+        "id": 9,
+        "nom": "Vase blanc",
+        "catégorie": "Déco",
+        "prix": 25,
+        "image": "image/deco-vase.avif",
+        "description": "Un vase blanc pour mettre en valeur vos belles plantes."
+    },
+    {
+        "id": 10,
+        "nom": "Sofa en tissu",
+        "catégorie": "Canapé",
+        "prix": 850,
+        "image": "image/sofa-tissu.avif",
+        "description": "Optimisez votre espace avec ce canapé convertible en microfibre. Idéal pour les petits appartements ou les chambres d'amis, ce canapé se transforme facilement en lit pour accueillir vos invités. La microfibre résistante est non seulement douce au toucher mais aussi facile à nettoyer. Avec son design compact et fonctionnel, ce canapé convertible est un ajout pratique et élégant à votre intérieur."
+    },
+    {
+        "id": 11,
+        "nom": "Table basse en bois",
+        "catégorie": "Table",
+        "prix": 130,
+        "image": "image/table-basse-bois.jpg",
+        "description": "Ajoutez une touche de modernité à votre salon avec cette table basse en verre et métal. Le plateau en verre trempé transparent repose sur une structure en métal chromé, créant une esthétique légère et élégante. Parfaite pour mettre en valeur vos magazines, livres ou objets de décoration, cette table basse devient rapidement le point central de votre espace de vie."
+    },
+    {
+        "id": 12,
+        "nom": "Table basse ronde",
+        "catégorie": "Table",
+        "prix": 220,
+        "image": "image/table-basse-ronde.jpg",
+        "description": "Ajoutez une touche de modernité à votre salon avec cette table basse en verre et métal. Le plateau en verre trempé transparent repose sur une structure en métal chromé, créant une esthétique légère et élégante. Parfaite pour mettre en valeur vos magazines, livres ou objets de décoration, cette table basse devient rapidement le point central de votre espace de vie."
+    },
+    {
+        "id": 13,
+        "nom": "Table basse design",
+        "catégorie": "Table",
+        "prix": 300,
+        "image": "image/table-basse-design.jpg",
+        "description": "Transformez votre chambre en un sanctuaire romantique avec ce lit à baldaquin en fer forgé. Le cadre en fer forgé est orné de détails élégants et de lignes courbes, créant un look à la fois classique et intemporel. Associez ce lit avec des rideaux légers pour un effet cocon ou laissez-le tel quel pour une déclaration audacieuse. Ce lit est parfait pour ajouter une touche de charme et de sophistication à votre espace."
+    },
+    {
+        "id": 14,
+        "nom": "Tabouret",
+        "catégorie": "Chaise",
+        "prix": 25,
+        "image": "image/tabouret.jpg",
+        "description": "Transformez votre chambre en un sanctuaire romantique avec ce lit à baldaquin en fer forgé. Le cadre en fer forgé est orné de détails élégants et de lignes courbes, créant un look à la fois classique et intemporel. Associez ce lit avec des rideaux légers pour un effet cocon ou laissez-le tel quel pour une déclaration audacieuse. Ce lit est parfait pour ajouter une touche de charme et de sophistication à votre espace."
+    }
+]

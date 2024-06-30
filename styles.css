@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid black
+}
+
+header img {
+    height: 200px;
+    width: 200px;
+}
+
+header h1 {
+    text-align: center;
+}
+
+main {
+    /* background: linear-gradient(180deg, rgba(212, 207, 210, 1) 0%, rgba(167, 161, 165, 1) 100%);
+    position: relative; */
+
+}
+
+h2 {
+    padding: 20px;
+}
+
+#image-panier {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+#panier {
+
+    font-size: 20px;
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    border-radius: 50%;
+    border: none;
+}
+
+#commandes {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    padding-bottom: 2px;
+    border-radius: 50%;
+    color: white;
+    background-color: red;
+}
+
+.boutonTrier {
+    padding: 3px;
+    border: 0 black;
+    border-radius: 5px;
+    margin-bottom: 50px;
+
+    &:hover {
+        opacity: 0.8;
+
+    }
+}
+
+.liste-produits img {
+    height: 300px;
+    width: 300px;
+
+}
+
+.liste-produits {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+}
+
+
+
+article {
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    border-radius: 10px;
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+#img-caddie {
+    height: 30px;
+    width: 30px;
+
+
+
+}
+
+.add-to-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D4D3DC;
+    margin: 10px;
+    text-transform: uppercase;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 7px;
+    border: none;
+
+
+
+
+}
+
+.add-to-cart:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.englobe {
+    /* display: flex; */
+    position: relative;
+    background: linear-gradient(180deg, rgba(212, 207, 210, 1) 0%, rgba(167, 161, 165, 1) 100%);
+    flex-grow: 1;
+
+}
+
+.gauche {}
+
+.pop-up-panier-background {
+    background-color: grey;
+    width: 20%;
+    height: 500px;
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 20px;
+}
+
+.active {
+    display: flex;
+}

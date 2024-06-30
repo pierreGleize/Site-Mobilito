@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Mobilito</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script defer type="module" src="produits.js"></script>
+    <script defer type="module" src="panier.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <img src="image/best-mobilito.avif" alt="">
+        <h1>Best Mobilito</h1>
+    </header>
+    <main>
+        <div class="englobe">
+            <div class="gauche">
+
+                <h2>Liste produits : </h2><br>
+
+                <button id="panier"><img id='image-panier' src="image/caddie.avif" alt="logo du panier"><span
+                        id="commandes">0</span></button>
+
+                <button id="btn-all" class="boutonTrier">Afficher toutes les catégories</button>
+                <button class="boutonTrier" id="btn-canape">Canapé</button>
+                <button class="boutonTrier" id="btn-chaise">Chaise</button>
+                <button class="boutonTrier" id="btn-deco">Décoration</button>
+                <button class="boutonTrier" id="btn-table">Table</button>
+
+                <div class="liste-produits">
+
+                </div>
+                <div class="pop-up-panier-background">
+                    <div class="pop-up-panier">
+                        <button id="closePanier">Fermer panier</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
