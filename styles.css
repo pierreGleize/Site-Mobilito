@@ -127,25 +127,30 @@ article {
 }
 
 .englobe {
-    /* display: flex; */
+    display: flex;
     position: relative;
     background: linear-gradient(180deg, rgba(212, 207, 210, 1) 0%, rgba(167, 161, 165, 1) 100%);
     flex-grow: 1;
 
 }
 
-.gauche {}
 
 .pop-up-panier-background {
-    background-color: grey;
-    width: 20%;
-    height: 500px;
-    display: none;
+    width: 300px;
+    height: 100%;
+    background-color: #f0f0f0;
     position: fixed;
-    right: 0;
-    top: 20px;
+    top: 0;
+    right: -300px;
+    transition: right 0.3s ease;
+    z-index: 10;
+
+
 }
 
-.active {
-    display: flex;
+.pop-up-panier-background.open {
+
+    right: 0;
+
+
 }
