@@ -19,12 +19,6 @@ header h1 {
     text-align: center;
 }
 
-main {
-    /* background: linear-gradient(180deg, rgba(212, 207, 210, 1) 0%, rgba(167, 161, 165, 1) 100%);
-    position: relative; */
-
-}
-
 h2 {
     padding: 20px;
 }
@@ -128,15 +122,17 @@ article {
 
 .englobe {
     display: flex;
+
     position: relative;
     background: linear-gradient(180deg, rgba(212, 207, 210, 1) 0%, rgba(167, 161, 165, 1) 100%);
     flex-grow: 1;
+
 
 }
 
 
 .pop-up-panier-background {
-    width: 300px;
+    width: 250px;
     height: 100%;
     background-color: #f0f0f0;
     position: fixed;
