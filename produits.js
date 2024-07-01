@@ -83,15 +83,30 @@ function listeProduits (data){
     })
     boutonMoins.addEventListener('click',()=>{
         let valeurs = parseInt(quantité.textContent,10)
+
+        
         if(valeurs>1){
+
+        valeurs--
+        quantité.textContent=valeurs
+        value=parseInt(total.textContent,10)
+        value -= article.prix
+        total.textContent=value
+       
+    }else{
         valeurs--
         quantité.textContent=valeurs
         value=parseInt(total.textContent,10)
         value -= article.prix
         total.textContent=value
 
+        nomPanier.remove()
+        boutonMoins.remove()
+        boutonPlus.remove()
+        prixPanier.remove()
+        quantité.remove()
         
-    
+
     }
        
        
