@@ -72,7 +72,9 @@ function listeProduits (data){
     
     document.querySelector('.liste-produits').innerHTML=""
     
-    listeProduits(data)})
+    listeProduits(data)
+    incrementerCaddie()
+})
     
    
    const boutonCanape = document.getElementById('btn-canape')
@@ -81,9 +83,9 @@ function listeProduits (data){
         return piece.catégorie ==="Canapé"
     })
     document.querySelector('.liste-produits').innerHTML=""
-    
+   
     listeProduits(canapeFiltrer)
-    
+     incrementerCaddie()
    })
    const boutonChaise = document.getElementById('btn-chaise')
    boutonChaise.addEventListener("click", ()=>{
@@ -93,6 +95,7 @@ function listeProduits (data){
     document.querySelector('.liste-produits').innerHTML=""
 
     listeProduits(chaiseFiltrer)
+    incrementerCaddie()
     
    })
    const boutonDeco = document.getElementById('btn-deco')
@@ -103,6 +106,7 @@ function listeProduits (data){
     document.querySelector('.liste-produits').innerHTML=""
 
     listeProduits(decoFilter)
+    incrementerCaddie()
     
    })
    const boutonTable= document.getElementById('btn-table')
@@ -113,24 +117,33 @@ function listeProduits (data){
     document.querySelector('.liste-produits').innerHTML=""
 
     listeProduits(tableFiltrer)
+    incrementerCaddie()
     
    })
 
-   const btnPanier=document.getElementById('commandes')
+function incrementerCaddie(){
+    let value = 0
+    const btnPanier=document.getElementById('commandes')
     const btnAddPanier = document.querySelectorAll('.add-to-cart')
    btnAddPanier.forEach((button)=>{
     button.addEventListener("click",()=>{
-        let currentValue=parseInt(btnPanier.textContent, 10)
-        currentValue +=1
-        btnPanier.textContent=currentValue
+     value=parseInt(btnPanier.textContent, 10)
+    value +=1
+    btnPanier.textContent=value
     })
    })
-
-
+ const panierPop=document.querySelector('.pop-up-panier')
 const boutonClose= document.getElementById('viderPanier')
 boutonClose.addEventListener('click',()=>{
+    panierPop.innerHTML=""
+    btnPanier.textContent=0
+})       
+}
+incrementerCaddie()
+  
     
-})
+    
+    
 
 
 
