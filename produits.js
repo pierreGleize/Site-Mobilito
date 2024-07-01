@@ -41,10 +41,10 @@ function listeProduits (data){
 
    
     const contenuePanier=document.querySelector('.pop-up-panier')
-    
+    let total=document.getElementById('total')
     
     addToCart.addEventListener('click', ()=>{
-        // alert(`Je veux acheter ${article.nom} à ${article.prix} €`)
+    
     const nomPanier = document.createElement('p')
     nomPanier.innerText=article.nom
     const boutonPlus = document.createElement('button')
@@ -53,14 +53,46 @@ function listeProduits (data){
     const boutonMoins = document.createElement('button')
     boutonMoins.innerText="-"
     boutonMoins.className="bouton-moins"
+    let quantité =document.createElement('span')
+    quantité.textContent=1
+
     const prixPanier= document.createElement('p')
     prixPanier.innerText = `${article.prix}€`
+     let value=0
+    value=parseInt(total.textContent, 10)
+    value +=article.prix
+    total.textContent=value
 
     contenuePanier.appendChild(nomPanier)
     contenuePanier.appendChild(prixPanier)
+    
     prixPanier.appendChild(boutonMoins)
     prixPanier.appendChild(boutonPlus)
+    contenuePanier.appendChild(quantité)
+    
+    boutonPlus.addEventListener('click',()=>{
+        let valeur = parseInt(quantité.textContent,10)
+        valeur++
+        quantité.textContent=valeur
+        let value=0
+        value=parseInt(total.textContent, 10)
+        value +=article.prix
+        total.textContent=value
+       
     })
+    boutonMoins.addEventListener('click',()=>{
+        let valeurs = parseInt(quantité.textContent,10)
+        if(valeurs>1)
+        valeurs--
+        quantité.textContent=valeurs
+        value=parseInt(total.textContent, 10)
+        value -=article.prix
+        total.textContent=value
+
+    })
+    })
+
+    
    }
    
 }
@@ -137,6 +169,8 @@ const boutonClose= document.getElementById('viderPanier')
 boutonClose.addEventListener('click',()=>{
     panierPop.innerHTML=""
     btnPanier.textContent=0
+    let total=document.getElementById('total')
+    total.textContent=0
 })       
 }
 incrementerCaddie()
