@@ -1,14 +1,17 @@
 const reponse= await fetch('mobilier.json')
 const data= await reponse.json()
 
-
-
-
-
-function listeProduits (data){
-    
-    for(let i=0;i<data.length;i++){
+function dataTableau(){
+ for(let i=0;i<data.length;i++){
     const article=data[i]
+ }
+ return article
+}
+
+
+function listeProduits (){
+    
+   dataTableau()
    
     const produit= document.querySelector(".liste-produits")
 
@@ -63,7 +66,7 @@ function listeProduits (data){
     })
    }
    
-}
+
   listeProduits(data)
 
    const boutonALL = document.getElementById('btn-all')
