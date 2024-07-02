@@ -39,11 +39,32 @@ function listeProduits (data){
 
    
     const contenuePanier=document.querySelector('.pop-up-panier')
-    
+    const boutonRouge=document.getElementById('commandes')
     addToCart.addEventListener('click', ()=>{
-    
+        const existingItem = document.querySelector(`.panier-item[data-nom="${article.nom}"]`);
+        let total=document.getElementById('total')
+        let value = parseInt(total.textContent, 10);
+        let quantité = document.querySelector('.quantité');
+          
+    if(existingItem){
+      
+        quantité.textContent = parseInt(quantité.textContent, 10) + 1;
+        
+        boutonRouge.textContent = parseInt(boutonRouge.textContent, 10) + 1
+        value += article.prix;
+        total.textContent = value;
+        
+    }
+        else{  
+    const divElement=document.createElement('div')
+    divElement.className='div-element'
+    const imagePanier=document.createElement('img')
+    imagePanier.src=article.image
+    imagePanier.className='image-panier'
     const nomPanier = document.createElement('p')
     nomPanier.innerText=article.nom
+    nomPanier.className = "panier-item";
+    nomPanier.dataset.nom = article.nom;
     const boutonPlus = document.createElement('button')
     boutonPlus.innerText="+"
     boutonPlus.className="bouton-plus"
@@ -52,6 +73,7 @@ function listeProduits (data){
     boutonMoins.className="bouton-moins"
     let quantité =document.createElement('span')
     quantité.textContent=1
+    quantité.className="quantité"
 
     const prixPanier= document.createElement('p')
     prixPanier.innerText = `${article.prix}€`
@@ -59,24 +81,25 @@ function listeProduits (data){
     value=parseInt(total.textContent, 10)
     value +=article.prix
     total.textContent=value
-
-    contenuePanier.appendChild(nomPanier)
-    contenuePanier.appendChild(prixPanier)
+    contenuePanier.appendChild(divElement)
+    divElement.appendChild(imagePanier)
+    divElement.appendChild(nomPanier)
+    divElement.appendChild(prixPanier)
     
-    prixPanier.appendChild(boutonMoins)
-    prixPanier.appendChild(boutonPlus)
-    contenuePanier.appendChild(quantité)
+    divElement.appendChild(boutonMoins)
+    divElement.appendChild(boutonPlus)
+    divElement.appendChild(quantité)
     
-    const boutonRouge=document.getElementById('commandes')
+   
     boutonRouge.textContent = parseInt(boutonRouge.textContent, 10) + 1
     
 
     boutonPlus.addEventListener('click',()=>{
         boutonRouge.textContent = parseInt(boutonRouge.textContent, 10) + 1
        
-       let valeur = parseInt(quantité.textContent,10)
-        valeur++
-        quantité.textContent=valeur
+       let valeurs = parseInt(quantité.textContent,10)
+        valeurs++
+        quantité.textContent=valeurs
         let value=0
         value=parseInt(total.textContent,10)
         value += article.prix
@@ -110,7 +133,7 @@ function listeProduits (data){
         
     }
     })
-    })
+     } })
     }
    
 }
@@ -171,7 +194,7 @@ const boutonClose= document.getElementById('viderPanier')
 boutonClose.addEventListener('click',()=>{
     panierPop.innerHTML=""
     btnPanier.textContent=0
-    let total=document.getElementById('total')
+    const total=document.getElementById('total')
     total.textContent=0
-   
 })
+   
