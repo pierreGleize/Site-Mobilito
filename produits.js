@@ -3,8 +3,6 @@ const data= await reponse.json()
 
 
 
-
-
 function listeProduits (data){
     
     for(let i=0;i<data.length;i++){
@@ -70,20 +68,25 @@ function listeProduits (data){
     prixPanier.appendChild(boutonPlus)
     contenuePanier.appendChild(quantité)
     
-   
+//    const boutonRouge=document.getElementById('commandes')
+//     const buttonRouge=parseInt(boutonRouge.textContent, 10)
+
     boutonPlus.addEventListener('click',()=>{
+        
         let valeur = parseInt(quantité.textContent,10)
         valeur++
+        
         quantité.textContent=valeur
         let value=0
         value=parseInt(total.textContent,10)
         value += article.prix
         total.textContent=value
+        
        
     })
     boutonMoins.addEventListener('click',()=>{
         let valeurs = parseInt(quantité.textContent,10)
-
+        
         
         if(valeurs>1){
 
@@ -92,6 +95,9 @@ function listeProduits (data){
         value=parseInt(total.textContent,10)
         value -= article.prix
         total.textContent=value
+
+        
+        
        
     }else{
         valeurs--
@@ -106,6 +112,7 @@ function listeProduits (data){
         prixPanier.remove()
         quantité.remove()
         
+        
 
     }
        
@@ -113,11 +120,11 @@ function listeProduits (data){
         
 
     })
-    })
-
     
-   }
-   
+    })}
+        
+                
+
 }
   listeProduits(data)
 
@@ -176,7 +183,7 @@ function listeProduits (data){
     
    })
 
-function incrementerCaddie(){
+   function incrementerCaddie(){
     let value = 0
     const btnPanier=document.getElementById('commandes')
     const btnAddPanier = document.querySelectorAll('.add-to-cart')
@@ -186,7 +193,7 @@ function incrementerCaddie(){
     value +=1
     btnPanier.textContent=value
     })
-   })
+   })}
  const panierPop=document.querySelector('.pop-up-panier')
 const boutonClose= document.getElementById('viderPanier')
 boutonClose.addEventListener('click',()=>{
@@ -195,26 +202,5 @@ boutonClose.addEventListener('click',()=>{
     let total=document.getElementById('total')
     total.textContent=0
 })       
-}
+
 incrementerCaddie()
-  
-    
-    
-    
-
-
-
-
-
-
-
-   
-
-
-
-
-   
-   
-
-
-
