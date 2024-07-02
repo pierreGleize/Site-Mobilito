@@ -92,12 +92,29 @@ function listeProduits (data){
 
         
     
+    }else{
+        valeurs--
+        quantité.textContent=valeurs
+        value=parseInt(total.textContent,10)
+        value -= article.prix
+        total.textContent=value
+
+        nomPanier.remove()
+        boutonMoins.remove()
+        boutonPlus.remove()
+        prixPanier.remove()
+        quantité.remove()
+        
+        
+
     }
+
        
        
         
 
     })
+
     })
 
     
