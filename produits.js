@@ -42,9 +42,11 @@ function listeProduits (data){
    
     const contenuePanier=document.querySelector('.pop-up-panier')
     let total=document.getElementById('total')
-    
+    let vallleur =0
     addToCart.addEventListener('click', ()=>{
-    
+        
+        vallleur++
+
     const nomPanier = document.createElement('p')
     nomPanier.innerText=article.nom
     const boutonPlus = document.createElement('button')
@@ -70,9 +72,14 @@ function listeProduits (data){
     prixPanier.appendChild(boutonPlus)
     contenuePanier.appendChild(quantité)
     
-   
+    const boutonRouge=document.getElementById('commandes')
+    boutonRouge.textContent=vallleur
+
+
     boutonPlus.addEventListener('click',()=>{
-        let valeur = parseInt(quantité.textContent,10)
+       vallleur++
+       boutonRouge.textContent=vallleur
+       let valeur = parseInt(quantité.textContent,10)
         valeur++
         quantité.textContent=valeur
         let value=0
@@ -82,6 +89,8 @@ function listeProduits (data){
        
     })
     boutonMoins.addEventListener('click',()=>{
+        vallleur--
+        boutonRouge.textContent=vallleur
         let valeurs = parseInt(quantité.textContent,10)
         if(valeurs>1){
         valeurs--
@@ -177,9 +186,10 @@ function listeProduits (data){
     incrementerCaddie()
     
    })
+   
 
-function incrementerCaddie(){
-    let value = 0
+function incrementerCaddie(n){
+    let  value = n
     const btnPanier=document.getElementById('commandes')
     const btnAddPanier = document.querySelectorAll('.add-to-cart')
    btnAddPanier.forEach((button)=>{
@@ -198,7 +208,7 @@ boutonClose.addEventListener('click',()=>{
     total.textContent=0
 })       
 }
-incrementerCaddie()
+// incrementerCaddie(0)
   
     
     
