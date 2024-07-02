@@ -41,8 +41,9 @@ function listeProduits (data){
 
    
     const contenuePanier=document.querySelector('.pop-up-panier')
-    let total=document.getElementById('total')
+    
     let vallleur =0
+
     addToCart.addEventListener('click', ()=>{
         
         vallleur++
@@ -74,7 +75,15 @@ function listeProduits (data){
     
     const boutonRouge=document.getElementById('commandes')
     boutonRouge.textContent=vallleur
+    
+    // const boutonViderPanier=document.getElementById('viderPanier')
+    // boutonViderPanier.addEventListener('click',()=>{
+    //     contenuePanier.innerHTML=""
+    //     boutonRouge.textContent=0
+    //     total.textContent=0
+    //     vallleur=0
 
+    // })
 
     boutonPlus.addEventListener('click',()=>{
        vallleur++
@@ -188,30 +197,34 @@ function listeProduits (data){
    })
    
 
-function incrementerCaddie(n){
-    let  value = n
-    const btnPanier=document.getElementById('commandes')
-    const btnAddPanier = document.querySelectorAll('.add-to-cart')
-   btnAddPanier.forEach((button)=>{
-    button.addEventListener("click",()=>{
-     value=parseInt(btnPanier.textContent, 10)
-    value +=1
-    btnPanier.textContent=value
-    })
-   })
- const panierPop=document.querySelector('.pop-up-panier')
-const boutonClose= document.getElementById('viderPanier')
-boutonClose.addEventListener('click',()=>{
-    panierPop.innerHTML=""
-    btnPanier.textContent=0
-    let total=document.getElementById('total')
-    total.textContent=0
-})       
-}
-// incrementerCaddie(0)
+// function incrementerCaddie(n){
+//     let  value = n
+    
+    
+//    btnAddPanier.forEach((button)=>{
+//     button.addEventListener("click",()=>{
+//      value=parseInt(btnPanier.textContent, 10)
+//     value +=1
+//     btnPanier.textContent=value
+//     })
+//    }) 
+         
+// }
+// // incrementerCaddie(0)
+// const btnPanier=document.getElementById('commandes')
   
-    
-    
+//      const panierPop=document.querySelector('.pop-up-panier')
+// const boutonClose= document.getElementById('viderPanier')
+// boutonClose.addEventListener('click',()=>{
+//     panierPop.innerHTML=""
+//     btnPanier.textContent=0
+//     let total=document.getElementById('total')
+//     total.textContent=0
+
+// })
+//     function chiffre (n){
+//         return n===0
+//     }
     
 
 
