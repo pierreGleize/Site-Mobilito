@@ -1,8 +1,6 @@
+
 const reponse= await fetch('mobilier.json')
 const data= await reponse.json()
-
-
-
 
 
 function listeProduits (data){
@@ -42,12 +40,8 @@ function listeProduits (data){
    
     const contenuePanier=document.querySelector('.pop-up-panier')
     
-    let vallleur =0
-
     addToCart.addEventListener('click', ()=>{
-        
-        vallleur++
-
+    
     const nomPanier = document.createElement('p')
     nomPanier.innerText=article.nom
     const boutonPlus = document.createElement('button')
@@ -74,20 +68,12 @@ function listeProduits (data){
     contenuePanier.appendChild(quantité)
     
     const boutonRouge=document.getElementById('commandes')
-    boutonRouge.textContent=vallleur
+    boutonRouge.textContent = parseInt(boutonRouge.textContent, 10) + 1
     
-    // const boutonViderPanier=document.getElementById('viderPanier')
-    // boutonViderPanier.addEventListener('click',()=>{
-    //     contenuePanier.innerHTML=""
-    //     boutonRouge.textContent=0
-    //     total.textContent=0
-    //     vallleur=0
-
-    // })
 
     boutonPlus.addEventListener('click',()=>{
-       vallleur++
-       boutonRouge.textContent=vallleur
+        boutonRouge.textContent = parseInt(boutonRouge.textContent, 10) + 1
+       
        let valeur = parseInt(quantité.textContent,10)
         valeur++
         quantité.textContent=valeur
@@ -98,8 +84,7 @@ function listeProduits (data){
        
     })
     boutonMoins.addEventListener('click',()=>{
-        vallleur--
-        boutonRouge.textContent=vallleur
+        boutonRouge.textContent = parseInt(boutonRouge.textContent, 10) - 1
         let valeurs = parseInt(quantité.textContent,10)
         if(valeurs>1){
         valeurs--
@@ -123,20 +108,10 @@ function listeProduits (data){
         prixPanier.remove()
         quantité.remove()
         
-        
-
     }
-
-       
-       
-        
-
     })
-
     })
-
-    
-   }
+    }
    
 }
   listeProduits(data)
@@ -148,7 +123,7 @@ function listeProduits (data){
     document.querySelector('.liste-produits').innerHTML=""
     
     listeProduits(data)
-    incrementerCaddie()
+    
 })
     
    
@@ -159,8 +134,7 @@ function listeProduits (data){
     })
     document.querySelector('.liste-produits').innerHTML=""
    
-    listeProduits(canapeFiltrer)
-     incrementerCaddie()
+    listeProduits(canapeFiltrer)     
    })
    const boutonChaise = document.getElementById('btn-chaise')
    boutonChaise.addEventListener("click", ()=>{
@@ -168,9 +142,7 @@ function listeProduits (data){
         return piece.catégorie ==="Chaise"
     })
     document.querySelector('.liste-produits').innerHTML=""
-
-    listeProduits(chaiseFiltrer)
-    incrementerCaddie()
+    listeProduits(chaiseFiltrer)  
     
    })
    const boutonDeco = document.getElementById('btn-deco')
@@ -180,9 +152,7 @@ function listeProduits (data){
     })
     document.querySelector('.liste-produits').innerHTML=""
 
-    listeProduits(decoFilter)
-    incrementerCaddie()
-    
+    listeProduits(decoFilter)      
    })
    const boutonTable= document.getElementById('btn-table')
    boutonTable.addEventListener("click", ()=>{
@@ -191,55 +161,17 @@ function listeProduits (data){
     })
     document.querySelector('.liste-produits').innerHTML=""
 
-    listeProduits(tableFiltrer)
-    incrementerCaddie()
-    
+    listeProduits(tableFiltrer)   
    })
-   
-
-// function incrementerCaddie(n){
-//     let  value = n
-    
-    
-//    btnAddPanier.forEach((button)=>{
-//     button.addEventListener("click",()=>{
-//      value=parseInt(btnPanier.textContent, 10)
-//     value +=1
-//     btnPanier.textContent=value
-//     })
-//    }) 
-         
-// }
-// // incrementerCaddie(0)
-// const btnPanier=document.getElementById('commandes')
+ 
+const btnPanier=document.getElementById('commandes')
   
-//      const panierPop=document.querySelector('.pop-up-panier')
-// const boutonClose= document.getElementById('viderPanier')
-// boutonClose.addEventListener('click',()=>{
-//     panierPop.innerHTML=""
-//     btnPanier.textContent=0
-//     let total=document.getElementById('total')
-//     total.textContent=0
-
-// })
-//     function chiffre (n){
-//         return n===0
-//     }
-    
-
-
-
-
-
-
-
+     const panierPop=document.querySelector('.pop-up-panier')
+const boutonClose= document.getElementById('viderPanier')
+boutonClose.addEventListener('click',()=>{
+    panierPop.innerHTML=""
+    btnPanier.textContent=0
+    let total=document.getElementById('total')
+    total.textContent=0
    
-
-
-
-
-   
-   
-
-
-
+})
