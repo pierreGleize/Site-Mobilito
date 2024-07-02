@@ -168,6 +168,8 @@ article {
 .image-panier {
     height: 75px;
     width: 75px;
+    position: absolute;
+    left: 0;
 
 }
 
@@ -196,15 +198,25 @@ article {
 .panier-nom {}
 
 
-.pop-up-panier {
-    /* display: flex;
-    flex-direction: column; */
-
-}
+.pop-up-panier {}
 
 .div-element {
     background-color: white;
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+
+
+}
+
+.div-sans-image {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 50px;
+    text-align: center;
+    z-index: 10;
 
 }
