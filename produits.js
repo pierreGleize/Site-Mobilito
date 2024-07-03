@@ -43,11 +43,6 @@ function listeProduits(data) {
       const quantité = document.querySelector(".quantité");
       const prix = document.querySelector(".prix-panier");
       if (existingItem) {
-        // quantité.textContent = parseInt(quantité.textContent, 10) + 1;
-        // boutonRouge.textContent = parseInt(boutonRouge.textContent, 10) + 1;
-        // value += article.prix * parseInt(quantityElement.textContent, 10);
-        // total.textContent = value;
-        // prix.textContent = `${parseInt(prix.textContent, 10) + article.prix} €`;
       } else {
         const divElement = document.createElement("div");
         divElement.className = "div-element";

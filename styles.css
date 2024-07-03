@@ -16,7 +16,7 @@ ul::before {
   }
   
   
-  ul:has(a:not(:hover, :focus-visible))::before) {
+  ul:has a:not(:hover, :focus-visible)::before {
     visibility: hidden;
     opacity: 0;
     transition: all 0.3s;
@@ -72,7 +72,7 @@ ul::before {
     display: flex;
     justify-content: start;
     list-style-type: none;
-    anchor-name: --slider-menu;
+    /* anchor-name: --slider-menu; */
   }
   a{
     padding:30px 15px;
@@ -154,10 +154,6 @@ h2 {
 }
 
 
-.boutonTrier {
-    
-}
-
 .liste-produits img {
     height: 300px;
     width: 300px;
@@ -179,7 +175,7 @@ h2 {
 
 article {
     background-color: rgb(255, 255, 255);
-    position: relative;
+    /* position: relative; */
     border-radius: 10px;
     padding-top: 5px;
     display: flex;
@@ -209,10 +205,6 @@ article {
     border-radius: 7px;
     border: none;
     padding: 3px 6px;
-
-
-
-
 }
 
 .add-to-cart:hover {
@@ -222,7 +214,7 @@ article {
 
 .englobe {
     display: flex;
-
+    flex-direction: column;
     position: relative;
     background: linear-gradient(180deg, rgba(212, 207, 210, 1) 0%, rgba(167, 161, 165, 1) 100%);
     flex-grow: 1;
@@ -237,6 +229,7 @@ article {
     background-color: #f0f0f0;
     position: fixed;
     top: 0;
+    bottom:0;
     right: -300px;
     transition: right 0.5s ease;
     z-index: 10;
@@ -252,7 +245,6 @@ article {
 }
 
 .pop-up-panier-background.open {
-
     right: 0;
 
 
@@ -331,31 +323,28 @@ article {
     cursor: pointer;
     padding: 4px;
     font-weight:bold;
+    border: none;
    
 }
 .bouton-panier-close-payé{
-    position: absolute;
-    bottom: 5px;
+display: grid;
+grid-template-columns: repeat(2,1fr);
+position: absolute;
+bottom: 5px;
+z-index: 11;
 }
 #payement,#closePanier{
- padding: 10px ;
+ padding: 12px 12px;
  cursor: pointer;
  border:none;
- margin-top: 5px;
-   
+font-weight:bold;
 }
 #closePanier{
-    width: 122px;
-    opacity: transparent;
     background-color:grey;
     color:white;
-    font-weight:bold;
-
 }
 #payement{
-    width: 122px;
+    
     background-color: yellow;
     letter-spacing: 1px;
-    font-weight:bold;
-    
 }
