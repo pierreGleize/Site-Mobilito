@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "nom": "Canapé cuire modern",
+        "nom": "Canapé cuir moderne",
         "catégorie": "Canapé",
         "prix": 1100,
         "image": "image/canape-cuire-modern.avif",
@@ -49,7 +49,7 @@
     },
     {
         "id": 7,
-        "nom": "Vase noire",
+        "nom": "Vase noir",
         "catégorie": "Déco",
         "prix": 30,
         "image": "image/deco-plante.avif",

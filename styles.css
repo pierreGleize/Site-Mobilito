@@ -2,6 +2,106 @@
     margin: 0;
     padding: 0;
 }
+/* The border-bottom slider here */
+ul::before {
+    content: "";
+    position: absolute;
+    left:   anchor(var(--target) left);
+    right:  anchor(var(--target) right);
+    bottom: anchor(var(--target) bottom);
+    transition: all 0.3s;
+    border-bottom: 0.3rem solid hsl(from var(--color) h s calc(l * 0.8));
+    pointer-events: none;
+    border-radius:20px;
+  }
+  
+  
+  ul:has(a:not(:hover, :focus-visible))::before) {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+  
+  a {
+     anchor-name: var(--anchor);
+     padding: 1rem;
+   
+  }
+  
+  li:nth-child(1) { --anchor: --item-1 }
+  ul:has(:nth-child(1) a:is(:hover, :focus-visible)) {
+    --target: --item-1;
+    --color: #D4D3DC;
+  }
+  
+  li:nth-child(2) { --anchor: --item-2 }
+  ul:has(:nth-child(2) a:is(:hover, :focus-visible)) {
+    --target: --item-2;
+    --color: #D4D3DC;
+  }
+  
+  li:nth-child(3) { --anchor: --item-3 }
+  ul:has(:nth-child(3) a:is(:hover, :focus-visible)) {
+    --target: --item-3;
+    --color: #D4D3DC;
+  }
+  
+  li:nth-child(4) { --anchor: --item-4 }
+  ul:has(:nth-child(4) a:is(:hover, :focus-visible)) {
+    --target: --item-4;
+    --color: #D4D3DC;
+  }
+  li:nth-child(5) { --anchor: --item-5 }
+  ul:has(:nth-child(5) a:is(:hover, :focus-visible)) {
+    --target: --item-5;
+    --color: #D4D3DC;
+  }
+  
+  a:focus-visible {
+    outline: none;
+  }
+  
+  
+  nav {
+    padding:1rem;
+    margin:20px;
+    padding: 1rem;
+  }
+  
+  ul {
+    display: flex;
+    justify-content: start;
+    list-style-type: none;
+    anchor-name: --slider-menu;
+  }
+  a{
+    padding:30px 15px;
+  }
+
+
+.boutonTrier{
+    cursor: pointer;
+    background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+   
+}
 
 header {
     display: flex;
@@ -24,48 +124,45 @@ h2 {
 }
 
 #image-panier {
-    height: 100px;
-    width: 100px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
 }
 
 #panier {
-
-    font-size: 20px;
+    background-color: white;;
     position: absolute;
     right: 15px;
     top: 20px;
     border-radius: 50%;
     border: none;
+    padding:0 3px;
+    cursor:pointer;
 }
 
 #commandes {
-    height: 20px;
-    width: 20px;
+    padding:2px 1px 0 1px;
+    height: 18px;
+    width:18px;
     position: absolute;
     right: 10px;
-    top: 20px;
-    padding-bottom: 2px;
+    bottom:15px;
     border-radius: 50%;
     color: white;
     background-color: red;
+    font-weight:bold;
 }
 
+
 .boutonTrier {
-    padding: 3px;
-    border: 0 black;
-    border-radius: 5px;
-    margin-bottom: 50px;
-
-    &:hover {
-        opacity: 0.8;
-
-    }
+    
 }
 
 .liste-produits img {
     height: 300px;
     width: 300px;
+    border-radius: 10px;
+    /* filter: drop-shadow(0 50 px 20px black); */
 
 }
 
@@ -89,6 +186,7 @@ article {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    filter: drop-shadow(0 50 px 20px black)
 
 }
 
@@ -107,9 +205,10 @@ article {
     background-color: #D4D3DC;
     margin: 10px;
     text-transform: uppercase;
-    box-shadow: 0 0 20px #eee;
+    box-shadow: 0 0 10px #9c9595;
     border-radius: 7px;
     border: none;
+    padding: 3px 6px;
 
 
 
@@ -139,10 +238,17 @@ article {
     position: fixed;
     top: 0;
     right: -300px;
-    transition: right 0.3s ease;
+    transition: right 0.5s ease;
     z-index: 10;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
 
 
+
+}
+.pop-up-panier-background ::-webkit-scrollbar{
+    width:0;
 }
 
 .pop-up-panier-background.open {
@@ -152,17 +258,22 @@ article {
 
 }
 
+
 #total {
-    border: 1px solid black;
-    display: inline;
+    text-align: center;
+    border: none;
+    font-weight:bold;
+    margin: 5px;
+
+
 }
 
 #total::before {
-    content: "Total : "
+    content: "TOTAL : "
 }
 
 #total::after {
-    content: "€"
+    content: "€";
 }
 
 .image-panier {
@@ -175,30 +286,22 @@ article {
 
 .bouton-moins,
 .bouton-plus {
-    font-size: 16px;
-    background-color: white;
-    margin: 5px;
+    
+    background-color: (167, 161, 165, 1);
+    border-radius: 25%;
     border-radius: 50%;
-
     cursor: pointer;
+    margin-right: 3px;
+    font-size:16px;
 
 
 }
-
-.bouton-moins {
-    color: rgb(216, 90, 90);
-    padding: 3px 9px 3px 9px;
+.bouton-plus{
+    padding: 1px 5px;
 }
-
-.bouton-plus {
-    color: rgb(95, 95, 226);
-    padding: 3px 7px 3px 7px;
+.bouton-moins{
+    padding:1px 6px;
 }
-
-.panier-nom {}
-
-
-.pop-up-panier {}
 
 .div-element {
     background-color: white;
@@ -206,6 +309,7 @@ article {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding:9px 0px;
 
 
 
@@ -219,4 +323,39 @@ article {
     text-align: center;
     z-index: 10;
 
+}
+
+#viderPanier{
+    background-color:rgb(99, 97, 97);
+    color:white;
+    cursor: pointer;
+    padding: 4px;
+    font-weight:bold;
+   
+}
+.bouton-panier-close-payé{
+    position: absolute;
+    bottom: 5px;
+}
+#payement,#closePanier{
+ padding: 10px ;
+ cursor: pointer;
+ border:none;
+ margin-top: 5px;
+   
+}
+#closePanier{
+    width: 122px;
+    opacity: transparent;
+    background-color:grey;
+    color:white;
+    font-weight:bold;
+
+}
+#payement{
+    width: 122px;
+    background-color: yellow;
+    letter-spacing: 1px;
+    font-weight:bold;
+    
 }
