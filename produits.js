@@ -1,121 +1,193 @@
-const reponse= await fetch('mobilier.json')
-const data= await reponse.json()
+const reponse = await fetch("mobilier.json");
+const data = await reponse.json();
 
+function listeProduits(data) {
+  for (let i = 0; i < data.length; i++) {
+    const article = data[i];
 
+    const produit = document.querySelector(".liste-produits");
 
+    const articleElement = document.createElement("article");
+    const imageElement = document.createElement("img");
+    imageElement.src = article.image;
+    const nomElement = document.createElement("h3");
+    nomElement.innerText = article.nom;
+    const prixElement = document.createElement("p");
+    prixElement.innerText = `${article.prix} €`;
 
+    const addToCart = document.createElement("button");
+    addToCart.innerText = "Ajouter au panier";
+    addToCart.className = "add-to-cart";
 
-function listeProduits (data){
+    const imageToCart = document.createElement("img");
+    imageToCart.src = "image/cart3.svg";
+    imageToCart.id = "img-caddie";
+
+    produit.appendChild(articleElement);
+
+    articleElement.appendChild(imageElement);
+    articleElement.appendChild(nomElement);
+    articleElement.appendChild(prixElement);
+    articleElement.appendChild(addToCart);
+    addToCart.appendChild(imageToCart);
+    const existingItem = document.querySelector(
+      `.panier-item[data-nom="${article.nom}"]`
+    );
     
-    for(let i=0;i<data.length;i++){
-    const article=data[i]
-   
-    const produit= document.querySelector(".liste-produits")
-
-    const articleElement=document.createElement('article')
-    const imageElement=document.createElement("img")
-    imageElement.src=article.image
-    const nomElement=document.createElement('h3')
-    nomElement.innerText=article.nom
-    const prixElement=document.createElement('p')
-    prixElement.innerText=`${article.prix} €`
-    // const cateElement=document.createElement('p')
-    // cateElement.innerText=`Catégorie : ${article.catégorie}`
-
-    const addToCart=document.createElement('button')
-    addToCart.innerText="Ajouter au panier"
-    addToCart.className="add-to-cart"
-    const imageToCart=document.createElement('img')
-    imageToCart.src= "image/cart3.svg"
-    imageToCart.id='img-caddie'
-
-
-
-    produit.appendChild(articleElement)
-   
-    articleElement.appendChild(imageElement)
-    articleElement.appendChild(nomElement)
-    articleElement.appendChild(prixElement)
-    // articleElement.appendChild(cateElement)
-    articleElement.appendChild(addToCart)
-    addToCart.appendChild(imageToCart)
-
-   
+    addToCart.addEventListener("click", () => {
+       const quantité = document.querySelector(".quantité");
+      const contenuePanier = document.querySelector(".pop-up-panier");
+      const boutonRouge = document.getElementById("commandes");
      
- 
-    
-    imageToCart.addEventListener('click', ()=>{
-        alert(`Je veux acheter ${article.nom} à ${article.prix} €`)
-    })
-   }
-   
+      let total = document.getElementById("total");
+      let value = parseInt(total.textContent, 10);
+     
+      const prix = document.querySelector(".prix-panier");
+      if (existingItem) {
+        quantité.textContent = parseInt(quantité.textContent, 10) + 1;
+        boutonRouge.textContent = parseInt(boutonRouge.textContent, 10) + 1;
+
+        value += article.prix * parseInt(quantityElement.textContent, 10);
+        total.textContent = value;
+        prix.textContent = `${parseInt(prix.textContent, 10) + article.prix} €`;
+      } else {
+        const divElement = document.createElement("div");
+        divElement.className = "div-element";
+        const imagePanier = document.createElement("img");
+        imagePanier.src = article.image;
+        imagePanier.className = "image-panier";
+        const divSansImage = document.createElement("div");
+        divSansImage.className = "div-sans-image";
+        const nomPanier = document.createElement("p");
+        nomPanier.innerText = article.nom;
+
+        nomPanier.className = "panier-item";
+        nomPanier.dataset.nom = article.nom;
+        const prixPanier = document.createElement("p");
+        prixPanier.innerText = `${article.prix} €`;
+
+        prixPanier.className = "prix-panier";
+        const divBouton = document.createElement("div");
+        divBouton.className = "div-bouton";
+
+        const boutonPlus = document.createElement("button");
+        boutonPlus.innerText = "+";
+        boutonPlus.className = "bouton-plus";
+        const boutonMoins = document.createElement("button");
+        boutonMoins.innerText = "-";
+        boutonMoins.className = "bouton-moins";
+        const quantité = document.createElement("span");
+        quantité.textContent = 1;
+        quantité.className = "quantité";
+
+        let value = 0;
+        value = parseInt(total.textContent, 10);
+        value += article.prix;
+        total.textContent = value;
+        contenuePanier.appendChild(divElement);
+        divElement.appendChild(imagePanier);
+        divElement.appendChild(divSansImage);
+        divSansImage.appendChild(nomPanier);
+        divSansImage.appendChild(prixPanier);
+        divSansImage.appendChild(divBouton);
+        divBouton.appendChild(boutonMoins);
+        divBouton.appendChild(boutonPlus);
+        divBouton.appendChild(quantité);
+
+        boutonRouge.textContent = parseInt(boutonRouge.textContent, 10) + 1;
+
+        boutonPlus.addEventListener("click", () => {
+          boutonRouge.textContent = parseInt(boutonRouge.textContent, 10) + 1;
+
+          let valeurs = parseInt(quantité.textContent, 10);
+          valeurs++;
+          quantité.textContent = valeurs;
+          let value = 0;
+          value = parseInt(total.textContent, 10);
+          value += article.prix;
+          total.textContent = value;
+          prixPanier.textContent = `${
+            parseInt(prixPanier.textContent, 10) + article.prix
+          } €`;
+        });
+        boutonMoins.addEventListener("click", () => {
+          boutonRouge.textContent = parseInt(boutonRouge.textContent, 10) - 1;
+          let valeurs = parseInt(quantité.textContent, 10);
+
+          if (parseInt(quantité.textContent, 10) > 1) {
+            valeurs--;
+            quantité.textContent = valeurs;
+            value = parseInt(total.textContent, 10);
+            value -= article.prix;
+            total.textContent = value;
+            prixPanier.textContent = `${
+              parseInt(prixPanier.textContent, 10) - article.prix
+            } €`;
+          } else {
+            valeurs--;
+            quantité.textContent = valeurs;
+            value = parseInt(total.textContent, 10);
+            value -= article.prix;
+            total.textContent = value;
+            divElement.remove();
+          }
+        });
+      }
+    });
+  }
 }
-  listeProduits(data)
+listeProduits(data);
 
-   const boutonALL = document.getElementById('btn-all')
-   boutonALL.addEventListener("click", ()=>{
-    
-    
-    document.querySelector('.liste-produits').innerHTML=""
-    
-    listeProduits(data)})
-    
-   
-   const boutonCanape = document.getElementById('btn-canape')
-   boutonCanape.addEventListener("click", ()=>{
-    const canapeFiltrer = data.filter(function (piece){
-        return piece.catégorie ==="Canapé"
-    })
-    document.querySelector('.liste-produits').innerHTML=""
-    
-    listeProduits(canapeFiltrer)
-    
-   })
-   const boutonChaise = document.getElementById('btn-chaise')
-   boutonChaise.addEventListener("click", ()=>{
-    const chaiseFiltrer = data.filter(function (piece){
-        return piece.catégorie ==="Chaise"
-    })
-    document.querySelector('.liste-produits').innerHTML=""
+const boutonALL = document.getElementById("btn-all");
+boutonALL.addEventListener("click", () => {
+  document.querySelector(".liste-produits").innerHTML = "";
 
-    listeProduits(chaiseFiltrer)
-    
-   })
-   const boutonDeco = document.getElementById('btn-deco')
-   boutonDeco.addEventListener("click", ()=>{
-    const decoFilter = data.filter(function (piece){
-        return piece.catégorie ==="Déco"
-    })
-    document.querySelector('.liste-produits').innerHTML=""
+  listeProduits(data);
+});
 
-    listeProduits(decoFilter)
-    
-   })
-   const boutonTable= document.getElementById('btn-table')
-   boutonTable.addEventListener("click", ()=>{
-    const tableFiltrer = data.filter(function (piece){
-        return piece.catégorie ==="Table"
-    })
-    document.querySelector('.liste-produits').innerHTML=""
+const boutonCanape = document.getElementById("btn-canape");
+boutonCanape.addEventListener("click", () => {
+  const canapeFiltrer = data.filter(function (piece) {
+    return piece.catégorie === "Canapé";
+  });
+  document.querySelector(".liste-produits").innerHTML = "";
 
-    listeProduits(tableFiltrer)
-    
-   })
+  listeProduits(canapeFiltrer);
+});
+const boutonChaise = document.getElementById("btn-chaise");
+boutonChaise.addEventListener("click", () => {
+  const chaiseFiltrer = data.filter(function (piece) {
+    return piece.catégorie === "Chaise";
+  });
+  document.querySelector(".liste-produits").innerHTML = "";
+  listeProduits(chaiseFiltrer);
+});
+const boutonDeco = document.getElementById("btn-deco");
+boutonDeco.addEventListener("click", () => {
+  const decoFilter = data.filter(function (piece) {
+    return piece.catégorie === "Déco";
+  });
+  document.querySelector(".liste-produits").innerHTML = "";
 
-   const btnPanier=document.getElementById('commandes')
-    const btnAddPanier = document.querySelectorAll('.add-to-cart')
-   btnAddPanier.forEach((button)=>{
-    button.addEventListener("click",()=>{
-        let currentValue=parseInt(btnPanier.textContent, 10)
-        currentValue +=1
-        btnPanier.textContent=currentValue
-    })
-   })
+  listeProduits(decoFilter);
+});
+const boutonTable = document.getElementById("btn-table");
+boutonTable.addEventListener("click", () => {
+  const tableFiltrer = data.filter(function (piece) {
+    return piece.catégorie === "Table";
+  });
+  document.querySelector(".liste-produits").innerHTML = "";
 
+  listeProduits(tableFiltrer);
+});
 
+const btnPanier = document.getElementById("commandes");
 
-   
-   
-
-
-
+const panierPop = document.querySelector(".pop-up-panier");
+const boutonClose = document.getElementById("viderPanier");
+boutonClose.addEventListener("click", () => {
+  panierPop.innerHTML = "";
+  btnPanier.textContent = 0;
+  const total = document.getElementById("total");
+  total.textContent = 0;
+});
