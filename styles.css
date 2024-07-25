@@ -9,7 +9,7 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
-ul::before {
+/* ul::before {
     content: "";
     position: absolute;
     left: anchor(var(--target) left);
@@ -40,7 +40,7 @@ li:nth-child(1) {
 
 ul:has(:nth-child(1) a:is(:hover, :focus-visible)) {
     --target: --item-1;
-    --color: #D4D3DC;
+    --color: rgb(0, 0, 0);
 }
 
 li:nth-child(2) {
@@ -81,7 +81,7 @@ ul:has(:nth-child(5) a:is(:hover, :focus-visible)) {
 
 a:focus-visible {
     outline: none;
-}
+} */
 
 
 nav {
@@ -94,7 +94,6 @@ ul {
     display: flex;
     justify-content: start;
     list-style-type: none;
-    /* anchor-name: --slider-menu; */
 }
 
 a {
@@ -104,33 +103,31 @@ a {
 
 .boutonTrier {
     cursor: pointer;
-    background-color: rgba(51, 51, 51, 0.05);
+    /* background-color: white; */
     border-radius: 8px;
     border-width: 0;
-    color: #333333;
-    display: inline-block;
+    /* display: inline-block; */
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
     list-style: none;
-    margin: 0;
+    /* margin: 0; */
     padding: 10px 12px;
     text-align: center;
-    transition: all 200ms;
+    /* transition: all 200ms;
     vertical-align: baseline;
     white-space: nowrap;
     user-select: none;
     -webkit-user-select: none;
-    touch-action: manipulation;
-
+    touch-action: manipulation; */
 }
 
 header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 2px solid black
+    border-bottom: 2px solid black;
 }
 
 header img {
@@ -430,4 +427,28 @@ article {
         height: 200px;
         width: 200px;
     }
+}
+@media screen and (max-width: 460px) {
+    .boutonTrier {
+    padding: 5px 6px;
+    }
+    nav {
+        padding: 1rem 0;;
+        margin: 10px;
+    
+    }
+    
+    a {
+        padding: 30px 5px;
+    }
+    
+}
+@media screen and (max-width: 390px){
+    .boutonTrier {
+        /* display: inline-block; */
+        font-weight: 500;
+        padding: 5px 6px;
+        font-size: 8px;
+   
+        }
 }
