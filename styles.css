@@ -183,6 +183,12 @@ h2 {
 
 }
 
+.liste-produits-contenair{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .liste-produits {
     display: flex;
     align-items: center;
@@ -357,6 +363,8 @@ article {
     position: absolute;
     bottom: 5px;
     z-index: 11;
+    position: sticky;
+    bottom: 0;
 }
 
 #payement,
@@ -395,6 +403,16 @@ article {
     width: 100px;
 }
 
+@media screen and (max-width: 945px){
+    .liste-produits{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 20px;
+        gap: 30px;
+    }
+  
+}
+
 @media screen and (max-width: 910px) {
     nav {
         margin: 10px 10px 30px 10px;
@@ -423,10 +441,34 @@ article {
         font-size: 15px;
     }
 
-    .liste-produits img {
+   
+}
+
+@media screen and (max-width: 670px) {
+     .liste-produits img {
         height: 200px;
         width: 200px;
     }
+    .liste-produits h3 {
+        font-size: 14px;
+    }
+    .add-to-cart {
+        margin: 10px;
+        padding: 2px 6px;
+        font-size: 10px;
+    }
+    #img-caddie{
+        width: 20px;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .liste-produits{
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 20px;
+        gap: 30px;
+    }
+  
 }
 @media screen and (max-width: 460px) {
     .boutonTrier {
@@ -445,7 +487,6 @@ article {
 }
 @media screen and (max-width: 390px){
     .boutonTrier {
-        /* display: inline-block; */
         font-weight: 500;
         padding: 5px 6px;
         font-size: 8px;
